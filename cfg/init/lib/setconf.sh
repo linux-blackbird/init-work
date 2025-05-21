@@ -24,7 +24,7 @@ function install_configuration_blackbird_basic() {
 
     ## podlet
     chmod +x /tmp/script/* 
-    cp /tmp/script/* /usr/bin
+    cp /tmp/script/* /usr/bin/
 
 
     ## skell
