@@ -193,7 +193,6 @@ function storage_blackbird_mouting_lvm2_partition_root() {
     mount -o uid=0,gid=0,fmask=0077,dmask=0077 $DISK_BOOT /mnt/boot 
     
 
-
     ## var partition
     if [ ! -d /mnt/var ];then
         mkdir /mnt/var 
@@ -207,11 +206,13 @@ function storage_blackbird_mouting_lvm2_partition_root() {
     fi
     mount -o rw,nosuid,nodev,noexec,relatime /dev/proc/vtmp /mnt/var/tmp 
 
+
     ## var/log partition
     if [ ! -d /mnt/var/log  ];then
         mkdir /mnt/var/log
     fi
     mount -o rw,nosuid,nodev,noexec,relatime /dev/proc/vlog /mnt/var/log 
+
 
     ## var/log/audit partition
     if [ ! -d /mnt/var/log/audit  ];then
