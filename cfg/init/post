@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+firewall-cmd --zone=public --add-port=7500/tcp --permanent
+
+virsh net-undefine default
+virsh pool-define-as master --type dir --target /var/lib/libvirt/images/master 
+virsh pool-define-as default --type dir --target /var/lib/libvirt/images/testing 
+virsh pool-define-as publish --type dir --target /var/lib/libvirt/images/publish 
+virsh pool-autostart master
+virsh pool-autostart publish
+virsh pool-autostart default
+virsh pool-start default
+virsh pool-start master
+virsh pool-start publish
+podman network create -d macvlan -o parent=bridge -o mode=passthru systemd

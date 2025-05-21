@@ -1,0 +1,8 @@
+HOSTNAMED="nagato.pc"
+USERNAMES="sultan"
+IPADDRRES="10.10.1.229"
+SECPOLICY="CIS-LEVEL-2"
+DISK_BOOT="/dev/nvme0n1p1"
+DISK_KEYS="/dev/nvme0n1p2"
+DISK_ROOT="/dev/nvme0n1p3"
+DISK_DATA="/dev/nvme0n1p4"

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+source /init/env/data
+source /init/lib/package.sh
+source /init/lib/setconf.sh
+source /init/lib/spolicy.sh
+
+
+### CONFIG
+install_configuration_blackbird_basic &&
+
+
+### USERS
+register_user_masters_blackbird_basic &&
+register_user_siteman_blackbird_basic &&
+register_user_adminer_blackbird_basic &&
+
+
+### INSTALL
+install_package_aurs_blackbird_basics &&
+
+
+source /init/env/data
+source /init/lib/package.sh
+source /init/lib/setconf.sh
+source /init/lib/spolicy.sh
+
+### CONFIG
+config_package_pack_blackbird_kernels &&
+config_package_pack_blackbird_network &&
+config_package_pack_blackbird_secured &&
+config_package_pack_blackbird_tunning &&
+config_package_pack_blackbird_service &&
+
+### POLICY
+if [[ $SECPOLICY == "CIS-LEVEL-2" ]];then
+    blackbird_cis_level_2_policy_install
+fi
+
+### FINISH
