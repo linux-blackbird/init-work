@@ -177,7 +177,7 @@ function config_package_pack_blackbird_service() {
 
 function config_package_pack_blackbird_systems() {
 
-    systemctl --global pipewire-pulse
+    systemctl --global enable pipewire-pulse
 
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
