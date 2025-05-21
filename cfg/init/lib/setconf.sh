@@ -17,11 +17,17 @@ function prepare_configuration_blackbird_basic() {
 function install_configuration_blackbird_basic() {
 
     git clone https://github.com/linux-blackbird/podlet.git /tmp/script
+    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
+    git clone https://github.com/linux-blackbird/login.git /usr/share/sddm/themes/
+    git clone https://github.com/linux-blackbird/themes.git /usr/share/themes/blackbird
+
+
+    ## podlet
     chmod +x /tmp/script/* 
     cp /tmp/script/* /usr/bin
 
 
-    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
+    ## skell
     mkdir /etc/skel/.local &&  mkdir /etc/skel/.local/share/
     git clone https://github.com/linux-blackbird/linker.git /etc/skel/.local/share/applications
 
