@@ -57,7 +57,7 @@ function install_package_main_blackbird_basics() {
 
 
     git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
-    mkdir /mnt/etc/skel/.local  &&  mkdir /mnt/etc/skel/.localshare/
+    mkdir /mnt/etc/skel/.local && mkdir /mnt/etc/skel/.localshare/
     git clone https://github.com/linux-blackbird/linker.git /mnt/etc/skel/.local/share/applications
 }
 
