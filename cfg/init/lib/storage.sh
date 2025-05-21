@@ -87,12 +87,12 @@ function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -e /dev/proc/root ];then
 
-        yes | /usr/bin/lvcreate -L 20G proc -n root 
+        yes | /usr/bin/lvcreate -L 25G proc -n root 
     fi
 
     if [ ! -e /dev/proc/vars ];then
 
-        yes | /usr/bin/lvcreate -L 5G proc -n vars 
+        yes | /usr/bin/lvcreate -L 10G proc -n vars 
     fi
 
     if [ ! -e /dev/proc/vtmp ];then
@@ -102,12 +102,12 @@ function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -e /dev/proc/vlog ];then
 
-        yes | lvcreate -L 50G data -n vlog
+        yes | lvcreate -L 2.5G data -n vlog
     fi
 
     if [ ! -e /dev/proc/vaud ];then
 
-        yes | lvcreate -L 20G data -n vaud
+        yes | lvcreate -L 1.5G data -n vaud
     fi
 
     if [ ! -e /dev/proc/swap ];then
@@ -133,7 +133,7 @@ function storage_blackbird_created_lvm2_partition_data() {
 
     if [ ! -e /dev/data/pods ];then
 
-        yes | lvcreate -L 20G data -n pods
+        yes | lvcreate -L 30G data -n pods
     fi
 
     if [ ! -e /dev/data/host ];then
