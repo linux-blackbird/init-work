@@ -102,12 +102,12 @@ function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -e /dev/proc/vlog ];then
 
-        yes | lvcreate -L 2.5G data -n vlog
+        yes | lvcreate -L 2.5G proc -n vlog
     fi
 
     if [ ! -e /dev/proc/vaud ];then
 
-        yes | lvcreate -L 1.5G data -n vaud
+        yes | lvcreate -L 1.5G proc -n vaud
     fi
 
     if [ ! -e /dev/proc/swap ];then
