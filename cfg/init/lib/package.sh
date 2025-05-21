@@ -134,8 +134,7 @@ function config_package_pack_blackbird_desktop() {
     systemctl --global enable hypridle.service
     systemctl --global enable hyprpolkitagent
     systemctl --global enable waybar
-
-    sudo systemctl enable sddm
+    systemctl enable sddm
 
 }
 
