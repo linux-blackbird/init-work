@@ -1,5 +1,5 @@
-HOSTNAMED="kawakami.pc"
-USERNAMES="baihaqi"
+HOSTNAMED="sandayu.pc"
+USERNAMES="kamil"
 IPADDRRES="10.10.1.228"
 SECPOLICY="CIS-LEVEL-2"
 DISK_BOOT="/dev/nvme0n1p1"

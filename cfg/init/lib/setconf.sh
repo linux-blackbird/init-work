@@ -110,7 +110,7 @@ function register_user_podlets_blackbird_basic() {
 
 function register_user_adminer_blackbird_basic() {
 
-    USERNAME="baihaqi"
+    USERNAME="kamil"
 
     useradd -m $USERNAME
     passwd $USERNAME;
