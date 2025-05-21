@@ -109,6 +109,6 @@ function register_user_podlets_blackbird_basic() {
 
 
 function register_user_adminer_blackbird_basic() {
-    shadow='$6$RFZDrC7V2WNkSHBG$JRGbBdl3hAcn4nn85/uAe5q8bz./ieEML/rU34ZQGoptw9ZL8E29ohIfC9wx.OgpgEIASdhGKFVbLGPBz.Jes1'
-    useradd -m -p $shadow lektor
+    useradd -m dzaky
+    passwd dzaky;
 }
