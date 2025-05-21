@@ -46,19 +46,6 @@ function install_package_main_blackbird_basics() {
                     $MAIN_UTILITY_PACKAGE $MAIN_DEVELOP_PACKAGE $MAIN_SERVICE_PACKAGE $AURS_AUDITOR_PACKAGE $MAIN_DESKTOP_PACKAGE \
                     $MAIN_SYSTEMS_PACKAGE $MAIN_OFFICES_PACKAGE $MAIN_BROWSER_PACKAGE $MAIN_AUDITOR_PACKAGE $MAIN_BACKUPS_PACKAGE
 
-
-    git clone https://github.com/linux-blackbird/login  /mnt/usr/share/sddm/themes/login
-    sudo git clone https://github.com/linux-blackbird/themes /mnt/usr/share/themes/blackbird
-
-
-    git clone https://github.com/linux-blackbird/podlet.git /tmp/script
-    chmod +x /tmp/script/* 
-    cp /tmp/script/* /mnt/usr/bin
-
-
-    git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
-    mkdir /mnt/etc/skel/.local && mkdir /mnt/etc/skel/.localshare/
-    git clone https://github.com/linux-blackbird/linker.git /mnt/etc/skel/.local/share/applications
 }
 
 
