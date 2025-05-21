@@ -87,17 +87,17 @@ function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -e /dev/proc/root ];then
 
-        yes | /usr/bin/lvcreate -L 25G proc -n root 
+        yes | lvcreate -L 25G proc -n root 
     fi
 
     if [ ! -e /dev/proc/vars ];then
 
-        yes | /usr/bin/lvcreate -L 10G proc -n vars 
+        yes | lvcreate -L 10G proc -n vars 
     fi
 
     if [ ! -e /dev/proc/vtmp ];then
 
-        yes | /usr/bin/lvcreate -L 1G proc -n vtmp 
+        yes | lvcreate -L 1G proc -n vtmp 
     fi
 
     if [ ! -e /dev/proc/vlog ];then
@@ -112,7 +112,7 @@ function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -e /dev/proc/swap ];then
 
-        yes | /usr/bin/lvcreate -l100%FREE proc -n swap
+        yes | lvcreate -l100%FREE proc -n swap
     fi
 }
 
