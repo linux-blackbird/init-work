@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 MAIN_KERNELS_PACKAGE="linux-hardened linux-firmware mkinitcpio intel-ucode base base-devel bubblewrap-suid"
 MAIN_NETWORK_PACKAGE="openssh ethtool"
 MAIN_SECURED_PAKCAGE="firewalld tang apparmor libpwquality nftables clevis mkinitcpio-nfs-utils luksmeta libpam-google-authenticator polkit gnome-keyring libsecret seahorse keepassxc"
@@ -98,16 +97,19 @@ function config_package_pack_blackbird_kernels() {
 
 function config_package_pack_blackbird_network() {
 
+    ## secure shell
     systemctl enable sshd 
+
+    ## networking
     systemctl enable systemd-networkd.socket
     systemctl enable systemd-resolved
 
+    ## gnome keyring
     sudo ln -s /usr/lib/seahorse/ssh-askpass /usr/lib/ssh/ssh-askpass
-
     systemctl --global enable gnome-keyring-daemon.socket
     systemctl --global enable  gcr-ssh-agent.socket
 
-
+    ## wake on lan
     systemctl enable wol@interface.service
 }
 
@@ -175,6 +177,9 @@ function config_package_pack_blackbird_service() {
 
 function config_package_pack_blackbird_systems() {
 
+    systemctl --global pipewire-pulse
+
+
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     sudo flatpak override --filesystem=$HOME/.themes
     sudo flatpak override --filesystem=$HOME/.icons
@@ -185,17 +190,6 @@ function config_package_pack_blackbird_systems() {
     cp /usr/share/background/blackbird-dark.png /usr/share/hypr/wall0.png
     cp /usr/share/background/blackbird-dark.png /usr/share/hypr/wall1.png
     cp /usr/share/background/blackbird-dark.png /usr/share/hypr/wall2.png
-
-}
-
-
-function config_package_pack_blackbird_audisys() {
-    echo 'no package registered'
-}
-
-
-function config_package_pack_blackbird_fileman() {
-    echo 'no package registered'
 }
 
 

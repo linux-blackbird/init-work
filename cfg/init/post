@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 firewall-cmd --zone=public --add-port=7500/tcp --permanent
 
 virsh net-undefine default
