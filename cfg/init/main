@@ -29,7 +29,10 @@ source /init/lib/spolicy.sh
 config_package_pack_blackbird_kernels &&
 config_package_pack_blackbird_network &&
 config_package_pack_blackbird_secured &&
+config_package_pack_blackbird_desktop &&
 config_package_pack_blackbird_tunning &&
+config_package_pack_blackbird_utility &&
+config_package_pack_blackbird_systems &&
 config_package_pack_blackbird_service &&
 
 ### POLICY
