@@ -9,31 +9,30 @@ function prepare_configuration_blackbird_basic() {
 
     cp /etc/systemd/network/* /mnt/etc/systemd/network/
     cp -fr $(pwd)/init-work/cfg/* /mnt/
-    cp -f  $(pwd)/init-work/env /mnt/init/env/data
-
-
-    git clone https://github.com/linux-blackbird/login  /mnt/usr/share/sddm/themes/login
-    sudo git clone https://github.com/linux-blackbird/themes /mnt/usr/share/themes/blackbird
-
-
-    git clone https://github.com/linux-blackbird/podlet.git /tmp/script
-    chmod +x /tmp/script/* 
-    cp /tmp/script/* /mnt/usr/bin
-
-
-    git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
-    mkdir /mnt/etc/skel/.local && mkdir /mnt/etc/skel/.local/share/
-    git clone https://github.com/linux-blackbird/linker.git /mnt/etc/skel/.local/share/applications
-
-
-    mkdir /mnt/etc/skel/.themes && mkdir /mnt/etc/skel/.icons
-    sudo cp -r /mnt/usr/share/themes/blackbird /mnt/etc/skel/.themes/
-    sudo cp -r /mnt/usr/share/icons/Papirus-Dark /mnt/etc/skel/.icons/
+    cp -f  $(pwd)/init-work/env /mnt/init/env/data 
 
 }
 
 
 function install_configuration_blackbird_basic() {
+
+    git clone https://github.com/linux-blackbird/podlet.git /tmp/script
+    chmod +x /tmp/script/* 
+    cp /tmp/script/* /usr/bin
+
+
+    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
+    mkdir /etc/skel/.local &&  mkdir /etc/skel/.local/share/
+    git clone https://github.com/linux-blackbird/linker.git /etc/skel/.local/share/applications
+
+
+    mkdir /etc/skel/.themes && mkdir /etc/skel/.icons
+    sudo cp -r /mnt/usr/share/themes/blackbird /mnt/etc/skel/.themes/
+    sudo cp -r /mnt/usr/share/icons/Papirus-Dark /mnt/etc/skel/.icons/
+
+
+    git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
+
 
     echo $HOSTNAMED > /etc/hostname
 
