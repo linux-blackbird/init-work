@@ -7,7 +7,7 @@ RequiredForOnline=routable
 
 [Network]
 #DHCP=yes
-Address=10.10.1.226/24
+Address=10.10.1.229/24
 Gateway=10.10.1.1
 DNS=10.10.1.1
 Cache=yes
