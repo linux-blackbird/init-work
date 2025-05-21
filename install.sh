@@ -2,7 +2,7 @@
 
 ## PREPARE
 
-APPS=/init-logs
+APPS=/init-work
 echo "MODE=$1" >> $APPS/env
 
 

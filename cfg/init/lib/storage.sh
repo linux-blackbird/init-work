@@ -1,7 +1,7 @@
 #!/bin/bash
 
 STORAGERAND=MIIJQwIBADANB
-STORAGEUNIQ=/init-logs/cfg/usr/share/background/blackbird-dark.png
+STORAGEUNIQ=/init-work/cfg/usr/share/background/blackbird-dark.png
 
 
 function storage_blackbird_prepare_init_partition_proc() {
