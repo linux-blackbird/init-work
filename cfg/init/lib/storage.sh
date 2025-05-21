@@ -72,7 +72,7 @@ function storage_blackbird_opening_luks_partition_root() {
 function storage_blackbird_opening_luks_partition_data() {
     
     if [ ! -e  /dev/mapper/lvm_data ];then
-    
+
         cryptsetup luksOpen $DISK_DATA --key-file $STORAGEUNIQ lvm_data 
     fi
 }
@@ -82,6 +82,7 @@ function storage_blackbird_opening_luks_partition_data() {
 function storage_blackbird_created_lvm2_partition_root() {
 
     if [ ! -d /dev/proc ];then
+
         pvcreate /dev/mapper/lvm_root 
         vgcreate proc /dev/mapper/lvm_root 
     fi
@@ -249,7 +250,6 @@ function storage_blackbird_mouting_lvm2_partition_data() {
         mkdir /mnt/var/lib/libvirt/ /mnt/var/lib/libvirt/images/
     fi
     mount -o rw,nosuid,nodev,relatime /dev/data/host /mnt/var/lib/libvirt/images/
-  
 }
 
 
@@ -284,6 +284,7 @@ function setup_storage_blackbird_protocol_fresh() {
 }
 
 
+## MODE
 function setup_storage_blackbird_protocol_swipe() {
 
     ## opening luks

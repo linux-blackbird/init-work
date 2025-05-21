@@ -5,6 +5,7 @@ source /init/lib/package.sh
 source /init/lib/setconf.sh
 source /init/lib/spolicy.sh
 
+
 ## INSTALL
 install_dekstopmanage_blackbird_basic &&
 install_podmanpodlets_blackbird_basic &&
@@ -14,6 +15,7 @@ install_gnomeapplicat_blackbird_basic &&
 
 ### CONFIG
 install_configuration_blackbird_basic &&
+
 
 ### USERS
 register_user_masters_blackbird_basic &&
@@ -35,7 +37,6 @@ config_package_pack_blackbird_tunning &&
 config_package_pack_blackbird_utility &&
 config_package_pack_blackbird_systems &&
 config_package_pack_blackbird_service &&
-
 
 
 ### POLICY

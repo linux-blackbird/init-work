@@ -98,6 +98,7 @@ function config_package_pack_blackbird_kernels() {
 
 
 function config_package_pack_blackbird_network() {
+    
     systemctl enable sshd 
     systemctl enable systemd-networkd.socket
     systemctl enable systemd-resolved
