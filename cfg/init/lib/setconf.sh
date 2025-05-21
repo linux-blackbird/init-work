@@ -10,31 +10,53 @@ function prepare_configuration_blackbird_basic() {
     cp /etc/systemd/network/* /mnt/etc/systemd/network/
     cp -fr $(pwd)/init-work/cfg/* /mnt/
     cp -f  $(pwd)/init-work/env /mnt/init/env/data 
+}
+
+
+function install_dekstopmanage_blackbird_basic() {
+    git clone https://github.com/linux-blackbird/login.git /usr/share/sddm/themes/login/
 
 }
 
 
-function install_configuration_blackbird_basic() {
-
+function install_podmanpodlets_blackbird_basic() {
     git clone https://github.com/linux-blackbird/podlet.git /tmp/script
-    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
-    git clone https://github.com/linux-blackbird/login.git /usr/share/sddm/themes/login/
-    git clone https://github.com/linux-blackbird/themes.git /usr/share/themes/blackbird
-
-
-    ## podlet
     chmod +x /tmp/script/* 
     cp /tmp/script/* /usr/bin/
+}
 
 
-    ## skell
-    mkdir /etc/skel/.local &&  mkdir /etc/skel/.local/share/
-    git clone https://github.com/linux-blackbird/linker.git /etc/skel/.local/share/applications
+function install_skeletontheme_blackbird_basic() {
 
+    git clone https://github.com/linux-blackbird/themes.git /usr/share/themes/blackbird
+    
+    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
+  
+    if [ -d /etc/skel/.themes ];then
+        mkdir /etc/skel/.themes
+    fi
 
-    mkdir /etc/skel/.themes && mkdir /etc/skel/.icons
+    if [ -d /etc/skel/.icons ];then
+        mkdir /etc/skel/.icons
+    fi
+
     sudo cp -r /usr/share/themes/blackbird /etc/skel/.themes/
+
     sudo cp -r /usr/share/icons/Papirus-Dark /etc/skel/.icons/
+}
+
+
+function install_gnomeapplicat_blackbird_basic() {
+    
+    if [ -d /etc/skel/.local/share/ ];then
+         mkdir /etc/skel/.local &&  mkdir /etc/skel/.local/share/
+    fi
+
+    git clone https://github.com/linux-blackbird/linker.git /etc/skel/.local/share/applications
+}
+
+
+function install_configuration_blackbird_basic() {
 
 
     echo $HOSTNAMED > /etc/hostname

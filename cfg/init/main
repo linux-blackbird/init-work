@@ -5,10 +5,15 @@ source /init/lib/package.sh
 source /init/lib/setconf.sh
 source /init/lib/spolicy.sh
 
+## INSTALL
+install_dekstopmanage_blackbird_basic &&
+install_podmanpodlets_blackbird_basic &&
+install_skeletontheme_blackbird_basic &&
+install_gnomeapplicat_blackbird_basic &&
+
 
 ### CONFIG
 install_configuration_blackbird_basic &&
-
 
 ### USERS
 register_user_masters_blackbird_basic &&
@@ -21,11 +26,6 @@ register_user_adminer_blackbird_basic &&
 install_package_aurs_blackbird_basics &&
 
 
-source /init/env/data
-source /init/lib/package.sh
-source /init/lib/setconf.sh
-source /init/lib/spolicy.sh
-
 ### CONFIG
 config_package_pack_blackbird_kernels &&
 config_package_pack_blackbird_network &&
@@ -35,6 +35,8 @@ config_package_pack_blackbird_tunning &&
 config_package_pack_blackbird_utility &&
 config_package_pack_blackbird_systems &&
 config_package_pack_blackbird_service &&
+
+
 
 ### POLICY
 if [[ $SECPOLICY == "CIS-LEVEL-2" ]];then
