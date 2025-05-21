@@ -33,8 +33,8 @@ function install_configuration_blackbird_basic() {
 
 
     mkdir /etc/skel/.themes && mkdir /etc/skel/.icons
-    sudo cp -r /usr/share/themes/blackbird /mnt/etc/skel/.themes/
-    sudo cp -r /usr/share/icons/Papirus-Dark /mnt/etc/skel/.icons/
+    sudo cp -r /usr/share/themes/blackbird /etc/skel/.themes/
+    sudo cp -r /usr/share/icons/Papirus-Dark /etc/skel/.icons/
 
 
     echo $HOSTNAMED > /etc/hostname
