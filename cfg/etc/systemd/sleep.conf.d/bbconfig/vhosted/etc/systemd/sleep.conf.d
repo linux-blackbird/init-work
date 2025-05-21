@@ -1,5 +1,5 @@
-#[Sleep]
-#AllowSuspend=no
-#AllowHibernation=no
-#AllowHybridSleep=no
-#AllowSuspendThenHibernate=no
+[Sleep]
+AllowSuspend=no
+AllowHibernation=no
+AllowHybridSleep=no
+AllowSuspendThenHibernate=no
