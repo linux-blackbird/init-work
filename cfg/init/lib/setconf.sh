@@ -109,6 +109,10 @@ function register_user_podlets_blackbird_basic() {
 
 
 function register_user_adminer_blackbird_basic() {
-    useradd -m dzaky
-    passwd dzaky;
+
+    $USERNAME="dzaky"
+
+    useradd -m $USERNAME
+    passwd $USERNAME;
+    usermod -aG libvirt $USERNAME;
 }
