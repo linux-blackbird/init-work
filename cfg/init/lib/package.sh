@@ -181,10 +181,13 @@ function config_package_pack_blackbird_systems() {
 
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    
     sudo flatpak override --filesystem=$HOME/.themes
     sudo flatpak override --filesystem=$HOME/.icons
     sudo flatpak override --env=GTK_THEME=blackbird
     sudo flatpak override --env=GTK_THEME=blackbird
+
+
 
     rm /usr/share/hypr/wall0.png && rm /usr/share/hypr/wall1.png && rm /usr/share/hypr/wall2.png
     cp /usr/share/background/blackbird-dark.png /usr/share/hypr/wall0.png
