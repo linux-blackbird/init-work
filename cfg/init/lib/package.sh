@@ -62,22 +62,6 @@ function install_package_main_blackbird_basics() {
 }
 
 
-function install_package_main_blackbird_variant() {
-
-
-    if [[ $VARIANT == "multimedia" ]];then
-        pacstrap /mnt/  $MAIN_PROFILE_MEDIAS
-    fi
-
-    if [[ $VARIANT == "development" ]];then
-        pacstrap /mnt/  $MAIN_PROFILE_DEVELS
-    fi
-
-    if [[ $VARIANT == "multimedia" ]];then
-        pacstrap /mnt/  $MAIN_PROFILE_SUPPOR
-    fi
-}
-
 
 function install_package_aurs_blackbird_basics() {
 
@@ -103,33 +87,6 @@ function install_package_aurs_blackbird_basics() {
                                             $AURS_UTILITY_PACKAGE $AURS_DEVELOP_PACKAGE $AURS_SERVICE_PACKAGE $AURS_AUDITOR_PACKAGE $AURS_DESKTOP_PACKAGE \
                                             $MAIN_SYSTEMS_PACKAGE $AURS_OFFICES_PACKAGE $AURS_BROWSER_PACKAGE $AURS_AUDITOR_PACKAGE $AURS_BACKUPS_PACKAGE --noconfirm" &&
 
-
-    ## close user permision
-    echo 'h3x0r ALL=(ALL:ALL) ALL' > /etc/sudoers.d/00_lektor
-}
-
-
-function install_package_aurs_blackbird_variant() {
-
-    ## open user permision
-    echo 'h3x0r ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/00_lektor
-
-
-    ## install aur package
-    if [[ $VARIANT == "multimedia" ]];then
-
-         sudo -H -u h3x0r /bin/bash -c "yay  -S $AURS_PROFILE_MUMEDIA --noconfirm"
-    fi
-
-    if [[ $VARIANT == "development" ]];then
-
-        sudo -H -u h3x0r /bin/bash -c "yay  -S $AURS_PROFILE_DEVELOP --noconfirm"
-    fi
-
-    if [[ $VARIANT == "multimedia" ]];then
-
-        sudo -H -u h3x0r /bin/bash -c "yay  -S $AURS_PROFILE_SUPPORT --noconfirm"
-    fi
 
     ## close user permision
     echo 'h3x0r ALL=(ALL:ALL) ALL' > /etc/sudoers.d/00_lektor
