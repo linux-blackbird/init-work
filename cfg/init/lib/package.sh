@@ -2,7 +2,7 @@
 
 
 MAIN_KERNELS_PACKAGE="linux-hardened linux-firmware mkinitcpio intel-ucode base base-devel bubblewrap-suid"
-MAIN_NETWORK_PACKAGE="openssh"
+MAIN_NETWORK_PACKAGE="openssh ethtool"
 MAIN_SECURED_PAKCAGE="firewalld tang apparmor libpwquality nftables clevis mkinitcpio-nfs-utils luksmeta libpam-google-authenticator polkit gnome-keyring libsecret seahorse keepassxc"
 MAIN_STORAGE_PACKAGE="xfsprogs lvm2"
 MAIN_TUNNING_PACKAGE="reflector tuned tuned-ppd irqbalance"
@@ -47,7 +47,6 @@ function install_package_main_blackbird_basics() {
                     $MAIN_SYSTEMS_PACKAGE $MAIN_OFFICES_PACKAGE $MAIN_BROWSER_PACKAGE $MAIN_AUDITOR_PACKAGE $MAIN_BACKUPS_PACKAGE
 
 }
-
 
 
 function install_package_aurs_blackbird_basics() {
@@ -98,7 +97,7 @@ function config_package_pack_blackbird_kernels() {
 
 
 function config_package_pack_blackbird_network() {
-    
+
     systemctl enable sshd 
     systemctl enable systemd-networkd.socket
     systemctl enable systemd-resolved
@@ -107,14 +106,19 @@ function config_package_pack_blackbird_network() {
 
     systemctl --global enable gnome-keyring-daemon.socket
     systemctl --global enable  gcr-ssh-agent.socket
+
+
+    systemctl enable wol@interface.service
 }
 
 
 function config_package_pack_blackbird_secured() {
 
+
     ## firewalld configuration
     systemctl enable firewalld 
     systemctl enable apparmor.service 
+
 
     ## tang server
     systemctl enable tangd.socket
@@ -124,6 +128,7 @@ function config_package_pack_blackbird_secured() {
     systemctl enable clevis-luks-askpass.path
     echo "ip=$IPADDRRES::10.10.1.1:255.255.255.0::eth0:none nameserver=10.10.1.1" > /etc/cmdline.d/06-nets.conf
     mkinitcpio -P
+
 
     ## clevis register storage
     clevis luks bind -y -k /usr/share/background/blackbird-dark.png -d $DISK_ROOT sss '{"t": 1, "pins": {"tang": [ {"url": "http://10.10.1.2:7500"}, {"url": "http://10.10.1.22:7500"}, {"url": "http://10.10.1.23:7500"} ]}}'
@@ -136,7 +141,6 @@ function config_package_pack_blackbird_desktop() {
     systemctl --global enable hyprpolkitagent
     systemctl --global enable waybar
     systemctl enable sddm
-
 }
 
 
