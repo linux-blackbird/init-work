@@ -12,24 +12,23 @@ function prepare_configuration_blackbird_basic() {
     cp -f  $(pwd)/init-work/env /mnt/init/env/data
 
 
-    git clone https://github.com/linux-blackbird/login  /usr/share/sddm/themes/login
-    sudo git clone https://github.com/linux-blackbird/themes /usr/share/themes/blackbird
+    git clone https://github.com/linux-blackbird/login  /mnt/usr/share/sddm/themes/login
+    sudo git clone https://github.com/linux-blackbird/themes /mnt/usr/share/themes/blackbird
 
 
     git clone https://github.com/linux-blackbird/podlet.git /tmp/script
     chmod +x /tmp/script/* 
-    cp /tmp/script/* /usr/bin
+    cp /tmp/script/* /mnt/usr/bin
 
 
-    git clone https://github.com/linux-blackbird/conf.git /etc/skel/.config
-    mkdir /etc/skel/.local && mkdir /etc/skel/.local/share/
-    git clone https://github.com/linux-blackbird/linker.git /etc/skel/.local/share/applications
+    git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
+    mkdir /mnt/etc/skel/.local && mkdir /mnt/etc/skel/.local/share/
+    git clone https://github.com/linux-blackbird/linker.git /mnt/etc/skel/.local/share/applications
 
 
-
-    mkdir /etc/skel/.themes &&  mkdir /etc/skel/.icons
-    sudo cp -r /usr/share/themes/blackbird /etc/skel/.themes/
-    sudo cp -r /usr/share/icons/Papirus-Dark /etc/skel/.icons/
+    mkdir /mnt/etc/skel/.themes && mkdir /mnt/etc/skel/.icons
+    sudo cp -r /mnt/usr/share/themes/blackbird /mnt/etc/skel/.themes/
+    sudo cp -r /mnt/usr/share/icons/Papirus-Dark /mnt/etc/skel/.icons/
 
 }
 
@@ -91,8 +90,3 @@ function register_user_adminer_blackbird_basic() {
 }
 
 
-function register_user_officer_blackbird_basic() {
-    shadow='$6$RFZDrC7V2WNkSHBG$JRGbBdl3hAcn4nn85/uAe5q8bz./ieEML/rU34ZQGoptw9ZL8E29ohIfC9wx.OgpgEIASdhGKFVbLGPBz.Jes1'
-    useradd -m -p $shadow $USERNAME
-    usermod -a -G libvirt $USERNAME
-}

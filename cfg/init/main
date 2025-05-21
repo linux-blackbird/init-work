@@ -12,7 +12,8 @@ install_configuration_blackbird_basic &&
 
 ### USERS
 register_user_masters_blackbird_basic &&
-register_user_siteman_blackbird_basic &&
+register_user_vhosted_blackbird_basic &&
+register_user_podlets_blackbird_basic &&
 register_user_adminer_blackbird_basic &&
 
 
