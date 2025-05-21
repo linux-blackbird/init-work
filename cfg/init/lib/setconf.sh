@@ -31,9 +31,6 @@ function install_configuration_blackbird_basic() {
     sudo cp -r /mnt/usr/share/icons/Papirus-Dark /mnt/etc/skel/.icons/
 
 
-    git clone https://github.com/linux-blackbird/conf.git /mnt/etc/skel/.config
-
-
     echo $HOSTNAMED > /etc/hostname
 
     ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime 
